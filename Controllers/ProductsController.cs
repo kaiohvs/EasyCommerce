@@ -1,10 +1,12 @@
 ﻿using EasyCommerce.Models;
 using EasyCommerce.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace EasyCommerce.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class ProductsController : Controller
     {
         private readonly IGenericService<Product> _service;
