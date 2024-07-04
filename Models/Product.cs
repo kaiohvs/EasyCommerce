@@ -17,7 +17,11 @@ namespace EasyCommerce.Models
         [Required(ErrorMessage = "O campo Preço é obrigatório.")]
         [Range(0.01, 1000000, ErrorMessage = "O campo Preço deve estar entre 0.01 e 1,000,000.")]
         [DisplayFormat(DataFormatString = "{0:C}", ApplyFormatInEditMode = true)] // Formatação de exibição para formato monetário
-        public decimal Price { get; set; }               
-      
+        public decimal Price { get; set; }
+
+        // Chave estrangeira para a categoria
+        public int ProductCategoryId { get; set; }
+        public ProductCategory ?ProductCategory { get; set; }
+
     }
 }

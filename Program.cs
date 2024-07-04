@@ -21,6 +21,8 @@ internal class Program
         // Registro de Serviços Genéricos
         builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
         builder.Services.AddScoped(typeof(IGenericService<>), typeof(GenericService<>));
+        builder.Services.AddScoped(typeof(IProductsRepository), typeof(ProductsRepository));
+        builder.Services.AddScoped(typeof(IProductService), typeof(ProductService));
 
         // Configuração do Identity
         builder.Services.AddIdentity<ApplicationUser, IdentityRole>(options =>

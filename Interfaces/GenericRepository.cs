@@ -16,7 +16,9 @@ namespace EasyCommerce.Interfaces
         }
         public async Task<IEnumerable<T>> GetAllAsync()
         {
-            return await _dbSet.ToListAsync();
+            var list = await _dbSet.ToListAsync();
+
+            return list;
         }
         public async Task<T> GetByIdAsync(int id)
         {

@@ -1,4 +1,4 @@
-﻿@model IEnumerable<EasyCommerce.Models.Product>
+﻿@model IEnumerable<EasyCommerce.Models.ProductCategory>
 
 <p>
     <a asp-action="Create">Create New</a>
@@ -13,10 +13,7 @@
                 @Html.DisplayNameFor(model => model.Description)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Price)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ProductCategory)
+                @Html.DisplayNameFor(model => model.ParentCategory)
             </th>
             <th></th>
         </tr>
@@ -31,10 +28,7 @@
                 @Html.DisplayFor(modelItem => item.Description)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Price)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ProductCategory.Name)
+                @Html.DisplayFor(modelItem => item.ParentCategory.Name)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |

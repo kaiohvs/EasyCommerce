@@ -1,17 +1,18 @@
 ﻿using EasyCommerce.Interfaces;
+using EasyCommerce.Models;
 
 namespace EasyCommerce.Services
 {
-    public class GenericService<T> : IGenericService<T> where T : class
+    public class ProductService : IProductService
     {
-        private readonly IGenericRepository<T> _repository;
+        private readonly IProductsRepository _repository;
 
-        public GenericService(IGenericRepository<T> repository)
+        public ProductService(IProductsRepository repository)
         {
             _repository = repository;
         }
 
-        public async Task AddAsync(T entity)
+        public async Task AddAsync(Product entity)
         {
             try
             {
@@ -37,15 +38,15 @@ namespace EasyCommerce.Services
             }
         }
 
-        public async Task<IEnumerable<T>> GetAllAsync()
+        public async Task<IEnumerable<Product>> GetAllAsync()
         {
             try
             {
-                var list = await _repository.GetAllAsync();                
+                var list = await _repository.GetAllAsync();
 
                 if (list == null)
                 {
-                    return Enumerable.Empty<T>();
+                    return Enumerable.Empty<Product>();
                 }
                 else
                 {
@@ -59,7 +60,7 @@ namespace EasyCommerce.Services
             }
         }
 
-        public async Task<T> GetByIdAsync(int id)
+        public async Task<Product> GetByIdAsync(int id)
         {
             try
             {
@@ -72,7 +73,7 @@ namespace EasyCommerce.Services
             }
         }
 
-        public async Task UpdateAsync(T entity)
+        public async Task UpdateAsync(Product entity)
         {
             try
             {
